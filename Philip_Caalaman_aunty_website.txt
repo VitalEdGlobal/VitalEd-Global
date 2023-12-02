@@ -1,0 +1,9 @@
+Philip Caalaman aunty website 
+Color Info
+
+
+
+color gray: E4E2DD
+color blue: 000080 
+color dark gray: 3E3E3F
+Font Color: F7F9F9
