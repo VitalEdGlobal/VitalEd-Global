@@ -187,6 +187,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+        const lazyBackgrounds = document.querySelectorAll('.lazy-background');
+
+        function lazyLoadBackgrounds() {
+            lazyBackgrounds.forEach(background => {
+                if (isInViewport(background)) {
+                    background.style.backgroundImage = `url(${background.dataset.src})`;
+                    background.classList.remove('lazy-background');
+                }
+            });
+        }
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        lazyLoadBackgrounds();
+
+        window.addEventListener('scroll', lazyLoadBackgrounds);
+    });
+
+    </script>
+
+
 </body>
 
 </html>
