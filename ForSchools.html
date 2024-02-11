@@ -175,7 +175,7 @@
 
     <!-- Footer 2 Section -->
     <footer class="footer-2 ">
-            <p class="footer-2-font m-0 d-flex justify-content-center align-items-center p-2"><span class="fa fa-copyright modify-fa-icons-footer-2 mr-2"></span>2023 • VitalEd Global • All Rights Reserved.</p>
+            <p class="footer-2-font m-0 d-flex justify-content-center align-items-center p-2" id="currentYear"><span class="fa fa-copyright modify-fa-icons-footer-2 mr-2"></span>2023 • VitalEd Global • All Rights Reserved.</p>
     </footer>
     
     
@@ -209,7 +209,16 @@
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
             );
         }
+      function dateCurrent(){
+        // Get the current year
+        var currentYear = new Date().getFullYear();
 
+
+
+        // Update the text content of the paragraph element
+        document.getElementById('currentYear').textContent = currentYear + "• VitalEd Global • All Rights Reserved.";
+     }
+        dateCurrent();
         lazyLoadBackgrounds();
 
         window.addEventListener('scroll', lazyLoadBackgrounds);

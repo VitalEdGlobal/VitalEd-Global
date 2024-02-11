@@ -85,7 +85,7 @@
 				</div>
 	    		<div class="col-lg-6 d-block hiring-2-font p-4 mt-2 text-lg-left text-center">
 	    			<p>We are actively seeking K-12 educators specializing in the fields of Science, Mathematics and Special Education (SPED).</p>
-	    			<p>Applications for School Year 2023-2024 is ongoing</p>
+	    			<p id="yearRange">Applications for School Year 2023-2024 is ongoing</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWWi_qj2qDnhAXv_nyEXPGMPJXGfD1pUW_RRU4t6LsiSfTQ/viewform?usp=sf_link" target="_blank">
 	    			<button type="button" class="btn services-Button">Apply to Teach in the US</button>
                     </a>
@@ -231,7 +231,7 @@
 
 
     <footer class="footer-2 ">
-            <p class="footer-2-font m-0 d-flex justify-content-center align-items-center p-2"><span class="fa fa-copyright modify-fa-icons-footer-2 mr-2"></span>2023 • VitalEd Global • All Rights Reserved.</p>
+            <p class="footer-2-font m-0 d-flex justify-content-center align-items-center p-2" id="currentYear"><span class="fa fa-copyright modify-fa-icons-footer-2 mr-2"></span>2023 • VitalEd Global • All Rights Reserved.</p>
     </footer>
     
     
@@ -269,12 +269,42 @@
             );
         }
 
-        lazyLoadBackgrounds();
+         function dateChange(){
+        // Get the current year
+        var currentYear = new Date().getFullYear();
 
+        // Calculate the next year
+        var nextYear = currentYear + 1;
+
+        // Construct the new year range string
+        var newYearRange = currentYear + '-' + nextYear;
+
+        // Update the text content of the paragraph element
+        document.getElementById('yearRange').textContent = "Applications for School Year " + newYearRange + " is ongoing";
+     }
+
+      function dateCurrent(){
+        // Get the current year
+        var currentYear = new Date().getFullYear();
+
+
+
+        // Update the text content of the paragraph element
+        document.getElementById('currentYear').textContent = currentYear + "• VitalEd Global • All Rights Reserved.";
+     }
+        dateCurrent();
+        dateChange();
+        lazyLoadBackgrounds();
         window.addEventListener('scroll', lazyLoadBackgrounds);
+
+
     });
 
+
+
     </script>
+
+
 </body>
 
 </html>
